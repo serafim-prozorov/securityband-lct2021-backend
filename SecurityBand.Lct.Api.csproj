@@ -1,0 +1,57 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+      <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.2.3" />
+      <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.2.3" />
+      <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.2.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Update="ML\main.py">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+      <None Update="ML\docx_docs.py">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+      <None Update="ML\tf_fio.py">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+      <None Update="ML\pdf2.py">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="ML\saved_models\model_fio_classificaion.h5" />
+      <ClInclude Include="ML\saved_models\model_fio_classificaion.h5">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </ClInclude>
+      <Content Remove="ML\saved_models\tokenizer.json" />
+      <ClInclude Include="ML\saved_models\tokenizer.json">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </ClInclude>
+      <Content Remove="ML\saved_models\xgb.json" />
+      <ClInclude Include="ML\saved_models\xgb.json">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </ClInclude>
+      <None Remove="ML\saved_models\xgb.pickle.dat" />
+      <ClInclude Include="ML\saved_models\xgb.pickle.dat">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </ClInclude>
+      <None Remove="ML\saved_models\xgb.pickle_.dat" />
+      <ClInclude Include="ML\saved_models\xgb.pickle_.dat">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </ClInclude>
+      <None Remove="ML\saved_models\xgb.pickle_r.dat" />
+      <ClInclude Include="ML\saved_models\xgb.pickle_r.dat">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </ClInclude>
+    </ItemGroup>
+
+</Project>
